@@ -13,9 +13,13 @@ interface Database<T extends BaseRecord> {
   get(id: string): T | undefined;
 }
 
-function createDatabase<T extends BaseRecord>() {
+function createSingletonDatabase<T extends BaseRecord>() {
   return class InMemoryDatabase implements Database<T> {
     private db: Record<string, T> = {};
+
+    static instance: InMemoryDatabase = new InMemoryDatabase();
+
+    private constructor() {}
 
     set(newValue: T): void {
       this.db[newValue.id] = newValue;
@@ -26,4 +30,15 @@ function createDatabase<T extends BaseRecord>() {
     }
   };
 }
+
+const PokemonDB = createSingletonDatabase<Pokemon>();
+
+PokemonDB.instance.set({
+  id: 'pikachu',
+  attack: 50,
+  defense: 15
+})
+
+console.log(PokemonDB.instance.get('pikachu'));
+
 
