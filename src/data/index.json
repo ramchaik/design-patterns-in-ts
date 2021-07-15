@@ -1,0 +1,12 @@
+[
+  {
+    "id": "test-1",
+    "attack": 100,
+    "defence": 20
+  },
+  {
+    "id": "test-2",
+    "attack": 20,
+    "defence": 100
+  }
+]
