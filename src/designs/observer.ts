@@ -89,18 +89,18 @@ const unsubscribeAfterAdd = pk.onAfterAdd(({ value }) => {
   console.log('after add: ', { value });
 });
 
-pk.set({
-  id: 'test',
-  attack: 10,
-  defense: 10,
-});
+// pk.set({
+//   id: 'test',
+//   attack: 10,
+//   defense: 10,
+// });
 
-unsubscribeAfterAdd();
+// unsubscribeAfterAdd();
 
-pk.set({
-  id: 'test-2',
-  attack: 10,
-  defense: 10,
-});
-console.log(pk.get('test'));
+// pk.set({
+//   id: 'test-2',
+//   attack: 10,
+//   defense: 10,
+// });
+// console.log(pk.get('test'));
 
